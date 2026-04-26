@@ -1,13 +1,16 @@
 import axios from 'axios';
 import {useState} from 'react';
-function Login({switchToSignup}) {
+function Login({switchToSignup,switchToDashboard}) {
     const[email,setEmail]=useState('');
     const[password,setPassword]=useState('');
     const handlelogin=async(e)=>{
         e.preventDefault();
         try{
             const response=await axios.post('http://localhost:5000/login',{email,password});
-            alert(response.data.message);
+            if(response.data.message==='Login successful')
+            {
+                switchToDashboard();
+            }
         }
         catch(error){
             if(error.response){

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function Signup({switchToLogin}) {
     const[name,setName]=useState('');
-    const[email,setEmail]=useState('');
+    const[email,setEmail]=useState(''); 
     const[password,setPassword]=useState('');
     const handlesignup=async(e)=>{
         e.preventDefault();
