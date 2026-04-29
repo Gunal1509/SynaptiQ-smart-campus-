@@ -1,25 +1,33 @@
-import {useState} from 'react'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Dashboard from './components/Dashboard'
+import Uploads from './components/Uploads'
+import Profiles from './components/Profiles'
+import { useState } from 'react';
+
+import {Routes,Route} from 'react-router-dom'
 
 function App(){
-
-const [page,setPage]=useState('Login');
+    const[user,setuser]=useState(null);
 
 return(
-<div>
 
-{page==='Login' && <Login switchToSignup={()=>setPage('Signup')}
-switchToDashboard={()=>setPage('Dashboard')}
-/>}
+<Routes>
 
-{page==='Signup' && <Signup switchToLogin={()=>setPage('Login')} />}
+<Route path="/" element={<Login setuser={setuser}/>}/>
 
-{page==='Dashboard' && <Dashboard switchToLogin={()=>setPage("Login")}/>}
+<Route path="/signup" element={<Signup/>}/>
 
-</div>
+<Route path="/dashboard" element={<Dashboard/>}/>
+<Route path="/Uploads" element={<Uploads/>}/>
+<Route path="/Profiles" element={<Profiles user={user}/>}/>
 
-)}
+
+
+</Routes>
+
+)
+
+}
 
 export default App

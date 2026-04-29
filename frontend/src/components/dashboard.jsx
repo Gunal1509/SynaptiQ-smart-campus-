@@ -1,4 +1,8 @@
-function Dashboard({switchToLogin}) {
+import Img from '../assets/files.png';
+import pro from '../assets/profiles.png';
+import {useNavigate} from 'react-router-dom';
+function Dashboard() {
+    const navigate=useNavigate();
     return(
         <div className="bg-success min-vh-100">
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
@@ -27,7 +31,7 @@ CampusCopilot
 </div>
 
 <div className="ms-auto d-flex gap-2">
-<button className="btn btn-outline-light"onClick={switchToLogin}>
+<button className="btn btn-outline-light"onClick={()=>navigate('/')}>
 Logout
 </button>
 <a className="btn btn-outline-light " href="#">
@@ -36,13 +40,61 @@ Profile
 </div>
 </nav>
 
-<div className="card p-4 rounded-4 d-inline-block mt-3 ms-3 fw-bold">
+<div className="card p-4 rounded-4 d-inline-block mt-3 ms-4 fw-bold">
 <h1> SynapticQ</h1>
 <span>
     <p>one portal for all your needs</p>
 </span>
 </div>
+<div className="d-flex align-items-start gap-4 mt-4 ms-4">
+<button
+className="border-0 bg-transparent p-0"
+onClick={()=>navigate('/uploads')}>
+<div 
+className="card shadow rounded-4 mt-4 ms-4"
+style={{width:"290px",backgroundColor:"#006234"}}
+>
+
+<img
+src={Img}
+className="card-img-top"
+alt="Syllabus"
+/>
+
+<div className="card-body">
+
+<h5 className="card-title fw-bold text-white">
+Upload Syllabus
+</h5>
+
+<p className="card-text text-white">
+Upload your files to share data and notes
+</p>
 </div>
+</div>
+</button>
+
+  <button className="border-0 bg-transparent p-0"
+onClick={()=>navigate('/Profiles')}>
+    <div className="card shadow rounded-4 mt-4 ms-4" style={{width:"290px",backgroundColor:"#006234"}}>
+        <img
+src={pro}
+className="card-img-top"
+alt="profile"
+/>
+<div className="card-body">
+
+<h5 className="card-title fw-bold text-white">
+        Profile</h5>
+
+<p className="card-text text-white">Manage your profile and settings</p>
+
+</div>
+    </div>
+    </button>
+</div>
+</div>
+
 
 
     )}

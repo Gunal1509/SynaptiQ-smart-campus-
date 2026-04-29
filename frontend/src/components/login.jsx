@@ -1,6 +1,8 @@
 import axios from 'axios';
 import {useState} from 'react';
-function Login({switchToSignup,switchToDashboard}) {
+import {useNavigate} from 'react-router-dom';
+function Login({setuser}) {
+    const navigate=useNavigate()
     const[email,setEmail]=useState('');
     const[password,setPassword]=useState('');
     const handlelogin=async(e)=>{
@@ -9,10 +11,16 @@ function Login({switchToSignup,switchToDashboard}) {
             const response=await axios.post('http://localhost:5000/login',{email,password});
             if(response.data.message==='Login successful')
             {
-                switchToDashboard();
+                setuser({
+                    email,
+                    password
+                })
+                navigate('/dashboard');
             }
         }
         catch(error){
+
+
             if(error.response){
                 alert(error.response.data.message);
             }
@@ -67,7 +75,7 @@ No account?
 <button
 type="button"
 className="btn btn-link"
-onClick={switchToSignup}
+onClick={()=>navigate('/signup')}
 >
 Sign Up
 </button>
@@ -85,4 +93,4 @@ Sign Up
 
 }
 
-export default Login
+export default Login;

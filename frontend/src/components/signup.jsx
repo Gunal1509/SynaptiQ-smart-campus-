@@ -1,8 +1,10 @@
 import {useState} from 'react';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 
-function Signup({switchToLogin}) {
+function Signup() {
+    const navigate=useNavigate();
     const[name,setName]=useState('');
     const[email,setEmail]=useState(''); 
     const[password,setPassword]=useState('');
@@ -11,6 +13,7 @@ function Signup({switchToLogin}) {
         try{
         const response= await axios.post('http://localhost:5000/signup',{name,email,password});
         alert('User registered successfully');
+        navigate('/');
         }
         catch(error){
             if(error.response){
@@ -66,7 +69,7 @@ Already registered?
 <button
 type="button"
 className="btn btn-link"
-onClick={switchToLogin}
+onClick={()=>navigate('/')}
 >
 Login
 </button>
