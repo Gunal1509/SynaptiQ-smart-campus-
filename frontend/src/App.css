@@ -182,3 +182,12 @@
     border-right-color: var(--border);
   }
 }
+.hover-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}

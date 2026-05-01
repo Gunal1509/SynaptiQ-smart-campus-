@@ -19,7 +19,7 @@ const Profiles=({user})=>{
                     </h3>
                 </div>
                 <div className="card shadow  p-3 rounded-4 mt-5 ms-4 d-inline-block">
-          <h2 className="fw-bold">Email Id : {user.email}</h2>
+                <h2 className="fw-bold">Email Id : {user.email}</h2>
             </div>
         </div>
         </div>

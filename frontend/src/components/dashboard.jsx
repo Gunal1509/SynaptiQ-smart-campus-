@@ -1,5 +1,7 @@
 import Img from '../assets/files.png';
 import pro from '../assets/profiles.png';
+import tim from '../assets/timetable.png';
+import rag1 from '../assets/rag1.png';
 import {useNavigate} from 'react-router-dom';
 function Dashboard() {
     const navigate=useNavigate();
@@ -15,7 +17,7 @@ data-bs-toggle="dropdown"
 </button>
 <ul className="dropdown-menu">
 <li>
-<a className="dropdown-item" href="#">
+<a className="dropdown-item" href="/dashboard">
 Dashboard
 </a>
 </li>
@@ -92,6 +94,50 @@ alt="profile"
 </div>
     </div>
     </button>
+    <button className="border-0 bg-transparent p-0"
+onClick={()=>navigate('/timetable')}>
+    <div className="card shadow rounded-4 mt-4 ms-4" style={{width:"290px",backgroundColor:"#006234"}}>
+    <img
+src={tim}
+className="card-img-top"
+alt="profile"/>
+<div className="card-body">
+
+<h5 className="card-title fw-bold text-white">
+        TimeTable</h5>
+
+<p className="card-text text-white">Manage your timetable with our portal</p>
+
+</div>
+    </div>
+    </button>
+    <button
+className="border-0 bg-transparent p-0"
+onClick={()=>navigate('/Rag')}>
+<div 
+className="card shadow rounded-4 mt-4 ms-4"
+style={{width:"290px",backgroundColor:"#006234"}}
+>
+
+<img
+src={rag1}
+className="card-img-top"
+alt="rag"
+/>
+
+<div className="card-body">
+
+<h5 className="card-title fw-bold text-white">
+Rag
+</h5>
+
+<p className="card-text text-white">
+Upload files and ask query from document
+</p>
+</div>
+</div>
+</button>
+
 </div>
 </div>
 

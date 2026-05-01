@@ -40,7 +40,7 @@ return (
 
 <div className="col-md-6 bg-dark d-flex justify-content-center align-items-center">
 
-<div className="card shadow p-4 rounded-5" style={{width:"400px"}}>
+<div className="card shadow p-4 rounded-5 hover-card" style={{width:"400px"}}>
 
 <h2 className="text-center mb-4">
 Login

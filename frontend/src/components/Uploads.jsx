@@ -63,9 +63,9 @@ onClick={()=>setShowToast(false)}>
 style={{width:"500px"}}
 >
 
-<h2 className="text-center mb-4">
+<h1 className="text-center mb-4 fw-bold">
 Upload Form
-</h2>
+</h1>
 
 <form onSubmit={handleSubmit} className="needs-validation mt-5 pt-5" noValidate>
 
