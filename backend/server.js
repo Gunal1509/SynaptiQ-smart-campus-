@@ -2,8 +2,10 @@ const express=require('express');
 const mysql=require('mysql2');
 const cors=require('cors');
 const bcrypt=require('bcrypt');
+const jwt = require("jsonwebtoken");
 
 const app=express();
+const SECRET_KEY = "synaptiqsecret";
 
 app.use(cors());
 app.use(express.json());
@@ -48,8 +50,21 @@ app.post('/login',async(req,res)=>{
         if(!isPasswordValid){
             return res.status(400).send({message:'Invalid password'});
         }
-        return res.status(200).send({message:'Login successful'});
-    });
+        const token = jwt.sign(
+
+{
+id:user.id,
+email:user.email
+},
+SECRET_KEY,
+{
+expiresIn:"2h"
+}
+);
+return res.status(200).send({
+message:'Login successful',
+token:token
+}); }); 
 });
 const PORT=5000;
 app.listen(PORT,()=>{

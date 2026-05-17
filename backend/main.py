@@ -6,8 +6,9 @@ from fastapi import Form
 from groq import Groq
 from dotenv import load_dotenv
 import os
+SECRET_KEY = "Gunal15"
+ALGORITHM = "HS256"
 load_dotenv()
-
 app=FastAPI()
 app.add_middleware(CORSMiddleware,allow_origins=["*"],allow_methods=["*"],allow_headers=["*"])
 client=MongoClient('mongodb://localhost:27017/')

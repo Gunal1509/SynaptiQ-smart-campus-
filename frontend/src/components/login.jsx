@@ -7,16 +7,22 @@ function Login({setuser}) {
     const[password,setPassword]=useState('');
     const handlelogin=async(e)=>{
         e.preventDefault();
+        console.log("BUTTON CLICKED");
+        console.log(email,password);
         try{
             const response=await axios.post('http://localhost:5000/login',{email,password});
-            if(response.data.message==='Login successful')
-            {
-                setuser({
-                    email,
-                    password
-                })
-                navigate('/dashboard');
-            }
+           if(response.data.token){
+
+localStorage.setItem(
+"token",
+response.data.token
+);
+
+navigate('/dashboard');
+console.log(response.data);
+
+}
+console.log(response.data);
         }
         catch(error){
 

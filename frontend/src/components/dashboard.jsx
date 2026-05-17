@@ -4,8 +4,20 @@ import tim from '../assets/timetable.png';
 import rag1 from '../assets/rag1.png';
 import AI from '../assets/AI.png';
 import {useNavigate} from 'react-router-dom';
+import {useEffect} from 'react';
 function Dashboard() {
     const navigate=useNavigate();
+    useEffect(()=>{
+
+        const token = localStorage.getItem("token");
+
+        if(!token){
+
+            navigate('/');
+
+        }
+
+    },[])
     return(
         <div className="bg-success min-vh-100">
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
@@ -34,7 +46,9 @@ CampusCopilot
 </div>
 
 <div className="ms-auto d-flex gap-2">
-<button className="btn btn-outline-light"onClick={()=>navigate('/')}>
+<button className="btn btn-outline-light"onClick={()=>{
+localStorage.removeItem("token");
+navigate('/');}}>
 Logout
 </button>
 <a className="btn btn-outline-light " href="#">
